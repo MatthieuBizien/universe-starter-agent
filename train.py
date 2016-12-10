@@ -45,7 +45,7 @@ def create_tmux_commands(session, num_workers, remotes, env_id, logdir):
 
     cmds = [
         "mkdir -p {}".format(logdir),
-        "tmux kill-session",
+        "tmux kill-session -t {}".format(session),
         "tmux new-session -s {} -n {} -d".format(session, windows[0]),
     ]
     for w in windows[1:]:
